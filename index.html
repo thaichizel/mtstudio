@@ -1,0 +1,455 @@
+<html>
+
+  <title>Monkeythorn Studio - Projects</title>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+
+
+  
+  <head>
+
+    <style>
+      .header {
+      padding-top: 10px; 
+      padding-bottom: 0px;
+      padding-left: 20px;
+      padding-right: 10px;/* some padding */
+      text-align: left; /* center the text */
+      background: #ffffff; /* green background */
+      color: rgb(0, 0, 0); /* white text color */
+      }
+
+      .header img {
+      float: left;
+      width: 60px;
+      height: 45px;
+      background:rgb(255, 255, 255);
+      padding: 5px;
+      padding-right: 16px;
+      }
+
+      .header h1 {
+      position: left;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      font-size: 24px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .navbar {
+      overflow: hidden; /* Hide overflow */
+      background-color: rgb(230, 230, 230); /* Dark background color */
+      }
+
+      .navbar a {
+      float: left; /* Make sure that the links stay side-by-side */
+      display: block; /* Change the display to block, for responsive reasons (see below) */
+      color: rgb(0, 0, 0); /* White text color */
+      text-align: center; /* Center the text */
+      padding: 10px; /* Add some padding */
+      padding-left: 20px;
+      text-decoration: none; /* Remove underline */
+      }
+
+      br {
+      line-height: 100%;
+      }
+      
+      * {
+      box-sizing: border-box;
+      }
+
+      /* Column container */
+      .row {
+      display: flex;
+      flex-wrap: wrap;
+      scroll-behavior: auto;
+      overflow: auto;
+      height: 100%;
+      }
+
+      /* Main column */
+      .main {
+      flex: 100%; /* Set the width of the main content */
+      background-color: white; /* White background color */
+      padding: 12px; /* Some padding */
+      overflow: auto;
+      height: auto;
+      scroll-behavior: auto;
+      line-height: 120%;
+      }
+
+      body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      height: 100%;
+      scroll-behavior: auto;
+      padding-bottom: 200px;
+      margin: 0px;
+      }
+
+
+      .footer {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      position: fixed;
+      padding-left: 10px; /* Some padding */
+      padding-top: 0px;
+      text-align: left; /* Center text*/
+      background-color: rgb(230, 230, 230);        
+      }
+  
+      .footer h2 {
+      position: left;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      font-size: 10px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .footerleft {
+      float:left;
+      flex: 40%; /* Set the width of the main content */
+      padding: 5px; /* Some padding */
+      overflow: auto;
+      height: 100%;
+      scroll-behavior: auto;
+      }
+      
+
+      /* title text for columns */
+      ttext  {
+      position: left;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      font-size: 16px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      ttextcol  {
+      position: left;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      font-size: 18px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color:rgb(145, 191, 212)
+      }
+
+      /* body text for columns */
+      btext  {
+      position: left;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      font-size: 14px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      ul {
+      font-size: 14px;
+      }
+
+
+      /* Style the buttons that are used to open and close the accordion panel */
+      .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.1s;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+      .active, .accordion:hover {
+        background-color: #ccc;
+      }
+
+      /* Style the accordion panel. Note: hidden by default */
+      .panel {
+      padding: 0 18px;
+      padding-right: 20px;
+      background-color: white;
+      max-height:0px;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      }
+          
+        
+      .accordion:after {
+      content: '\02023'; /* Unicode character for "plus" sign (+) */
+      font-size: 13px;
+      color: #777;
+      float: right;
+      margin-left: 5px;
+      }
+
+      .active:after {
+      content: "\2043"; /* Unicode character for "minus" sign (-) */
+      }
+
+      .fade-in {
+      animation: fadeIn ease 1s;
+      -webkit-animation: fadeIn ease 1s;
+      -moz-animation: fadeIn ease 1s;
+      -o-animation: fadeIn ease 1s;
+      -ms-animation: fadeIn ease 1s;
+      }         
+        
+      @keyframes fadeIn {
+        0%  {
+      opacity:0;
+      }
+      100%  {
+      opacity:1;
+      }
+      }
+      @-moz-keyframes fadeIn {
+        0% {
+      opacity:0;
+        }
+        100% {
+      opacity:1;
+        }
+      }
+      @-webkit-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+          }
+      }
+      @-o-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+          }
+      }
+      @-ms-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+        }
+      }
+
+      .responsive {
+      width: 100%;
+      height: auto;
+      }
+
+      .img {
+      float: left;
+      width: auto;
+      background:rgb(255, 255, 255); 
+      }
+
+      @media only screen and (min-width: 1024px) {
+                    
+      .main { 
+      padding: 400px;
+      flex-wrap: wrap;
+      padding-top: 35px;
+      padding-bottom: 35px;
+      }
+
+      .navbar a {
+      padding-left: 50px;
+      }
+
+      .responsive { 
+      max-width: auto;
+      height: auto;
+      padding-left: 10px;       /*set to match main*/
+      padding-right: 10px;  
+      padding-top: 10px;       /*but make sure contet doesnt drop*/ 
+      }   
+                  
+      }
+
+    
+
+    </style>
+
+  </head>
+
+  <div class="header fade-in">
+    <img src="img/MTStudio-2021.png" alt="mtstudio, architecture, design, houses, draw, earth, construction, building, durban, south africa"/> 
+    <h1>Monkeythorn Studio</h1>
+  </div> 
+
+
+
+
+  <body>
+    <script>
+        // alert("Hello Dim")
+        function handleClick() {
+            // alert("We are currently out of stock of everything \nApologies for the inconvenience")
+            let infoBar = document.querySelector("#info-bar")
+            infoBar.style.height = "200px";
+        }
+    </script>
+
+
+
+    <div class="navbar fade-in">
+      <a href="index.html">Projects</a> 
+      <a href="services.html">Services</a> 
+    
+    </div>
+
+
+    <div class="row">
+  
+        
+
+      <div class="main fade-in">
+            
+        <button class="accordion">2019 &nbsp; Hillcrest Aids Centre Coffee Shop</button>
+          <div class="panel">
+        <div class=".responsive"> 
+          <br>
+          <img src="img/Cover-HACT.jpg" alt="Hillcrest Aids Centre Coffee Shop, monkeythorn studio, mtstudio, lead architects, courtyard, outdoor, plan, design, architect, durban, south africa" class="responsive">
+          <p><btext> 
+          Coffee Shop Concept & Promo Material    
+          <br>
+          <br> Services Provided: Design Development, 3D Modeling and Promo Material for: <a href="https://leadarchitects.co.za">Lead Architects</a>
+          <br>
+          <br> <i>Tags: Renders, container architecture, coffee shop, courtyards, outdoor spaces, child friendly</i>
+          </btext></p>
+        </div>
+        </div>
+
+        <button class="accordion">2019 &nbsp; Pod House</button>
+          <div class="panel">
+          <div class=".responsive"> 
+            <img src="img/Cover-Pod.jpg" alt="monkeythorn studio, mtstudio, koop design, architecture, design, houses, draw, construction, building, durban, south africa" class="responsive">
+            <p><btext>
+            Develop building tech and construction guide for flexible housing model by <a href="http://koopdesign.co.za/">KOOP Design</a> 
+            <br>
+            <br> Services Provided: Specialist service, hourly rate. 
+              <br>
+            <br> <i>Tags: Modular design, low cost, houses, community architecture, street architecture, resource management</i>
+            </btext></p>
+          </div>
+        </div>
+
+        <button class="accordion">2018 &nbsp; Inchanga Seed Project, KZN</button>
+          <div class="panel">
+          <div class=".responsive"> 
+            <img src="img/Cover-Inchanga.jpg" alt="Inchanga seed project, monkeythorn studio, mtstudio, renewable houses, rhsa, schools, plan, design, architect, durban, south africa" class="responsive">
+            <p><btext> 
+            Feasibility study, Concept Design and Promo Material for Webambu eco-school
+            <br>             
+            <br>Services Provided: Architectural Stages 1 & 2 by <b>Monkeythorn Studio</b> in association with <a href="https://renewablehouses.co.za"> RHSA </a>  
+            <br>
+            <br> <i>Tags: bamboo, CSEB, earth, timber, permaculture, ECD, school, planning, eco-architecture, resource management</i>
+            </btext></p>
+          </div>
+        </div>
+  
+        <button class="accordion">2017 &nbsp; Canaan College, Umlazi-V</button>
+          <div class="panel">
+            <div class=".responsive"> 
+              <br>
+              <img src="img/Cover-Canaan.jpg" alt="mtstudio, architect, design, draw, construction, planning, building, durban, south africa" class="responsive">
+              <p><btext>
+              Adaptive re-use (add/alt) of existing bank.   
+              <br>  
+              <br> Services Provided: Architectural Stages 1-4.2 Specialist Consultant for: <a href="https://leadarchitects.co.za">Lead Architects</a>
+                            
+              <br>
+              <br><i>Tags: Additions / alterations, adaptive reuse, schools, planning, architecture, resource management  </i> 
+              </btext></p>
+            </div>
+        </div>
+
+        <button class="accordion">2014/18 &nbsp; Albini Mission Church, Nthshongweni</button>
+          <div class="panel">
+            <div class=".responsive"> 
+              <img src="img/Cover-Albini.jpg" alt="mtstudio, architecture, design, houses, draw, earth, construction, building, durban, south africa" class="responsive">
+              <p><btext>
+              Conservation and expansion of existing heritage church.     
+              <br>
+              <br> Services Provided: Architectural Stages 1-5 Specialist CSEB Consultant for <a href="https://leadarchitects.co.za">Lead Architects</a>
+                <br>
+              <br> <i>Tags: Compressed Stabilized Earth Block, heritage, church, community architecture, resource management</i>
+              </btext></p>
+            </div>
+        </div>
+
+
+
+
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+              });
+            }
+          
+        </script>
+
+      </div>
+  
+
+      <div class="footer fade-in">
+  
+      <p>
+      <btext><b>Monkeythorn Studio | Architecture | South Africa</b></btext>
+      <h2>
+      
+      
+        <div id="hideaway" style="display:none;">
+        <p>CIPC REG: pending
+          <br>Email: mtstudio.za@gmail.com 
+          <br>Inquiries: 071 581 2568
+          <br>Site maintained by Monkeythorn Studio | 2020 
+        </p>                
+      </div>
+        <p> 
+          <a href="javascript:;" onClick="document.getElementById('hideaway').style.display='block';">Contact Details</a>
+          <a href="javascript:;" onClick="document.getElementById('hideaway').style.display='none';">Hide Details</a>
+        </p></h2>
+            
+      </p>
+    
+  
+    
+    
+      </div>  
+
+
+
+    </div>
+
+  </body>
+  
+
+  
+</html>
+

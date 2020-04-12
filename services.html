@@ -1,0 +1,461 @@
+<html>
+
+    <title>Monkeythorn Studio - Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <head>
+
+        <style>
+
+
+                          .header {
+                          padding-top: 10px; 
+                          padding-bottom: 0px;
+                          padding-left: 20px;
+                          padding-right: 10px;/* some padding */
+                          text-align: left; /* center the text */
+                          background: #ffffff; /* green background */
+                          color: rgb(0, 0, 0); /* white text color */
+                          }
+
+            .header img {
+            float: left;
+            width: 60px;
+            height: 45px;
+            background:rgb(255, 255, 255);
+            padding: 5px;
+            padding-right: 16px;
+        }
+
+
+
+
+        .header h1 {
+        position: left;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        font-size: 24px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                }
+
+        .navbar {
+        overflow: hidden; /* Hide overflow */
+        background-color: rgb(230, 230, 230); /* Dark background color */
+                }
+
+        .navbar a {
+        float: left; /* Make sure that the links stay side-by-side */
+        display: block; /* Change the display to block, for responsive reasons (see below) */
+        color: rgb(0, 0, 0); /* White text color */
+        text-align: center; /* Center the text */
+        padding: 10px; /* Add some padding */
+        padding-left: 20px;
+        text-decoration: none; /* Remove underline */
+
+        }
+
+        br {
+        line-height: 150%;
+        }
+        
+        * {
+        box-sizing: border-box;
+        }
+
+            /* Column container */
+        .row {
+        display: flex;
+        flex-wrap: wrap;
+        scroll-behavior: auto;
+        overflow: auto;
+        height: 100%;
+        }
+
+
+        
+
+        /* Main column */
+        .main {
+        flex: 100%; /* Set the width of the main content */
+        background-color: white; /* White background color */
+        padding: 12px; /* Some padding */
+        overflow: auto;
+        height: auto;
+        scroll-behavior: auto;
+        line-height: 120%;
+        }
+
+        body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        height: 100%;
+        scroll-behavior: auto;
+        padding-bottom: 200px;
+        margin: 0px;
+        }
+
+
+        .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        padding-left: 10px; /* Some padding */
+        padding-top: 0px;
+        text-align: left; /* Center text*/
+        background-color: rgb(230, 230, 230);        
+        }
+    
+        .footer h2 {
+        position: left;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        font-size: 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .footerleft {
+        float:left;
+        flex: 40%; /* Set the width of the main content */
+        padding: 5px; /* Some padding */
+        overflow: auto;
+        height: 100%;
+        scroll-behavior: auto;
+        }
+       
+
+       /* title text for columns */
+    
+        ttext  {
+        position: left;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        font-size: 16px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        ttextcol  {
+        position: left;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        font-size: 18px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color:rgb(145, 191, 212)
+        }
+
+        /* body text for columns */
+        btext  {
+        position: left;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        font-size: 14px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        ul {
+        font-size: 14px;
+        }
+
+
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 10px;
+          width: 100%;
+          text-align: left;
+          border: none;
+          outline: none;
+          transition: 0.1s;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .accordion:hover {
+          background-color: #ccc;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+          padding: 0 18px;
+          padding-right: 20px;
+          background-color: white;
+          max-height:0px;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          line-height: 125%;
+        }
+
+        .accordion:after {
+        content: '\02023'; /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: #777;
+        float: right;
+        margin-left: 5px;
+        }
+
+        .active:after {
+        content: "\2043"; /* Unicode character for "minus" sign (-) */
+        }
+
+        .fade-in {
+          animation: fadeIn ease 1s;
+          -webkit-animation: fadeIn ease 1s;
+          -moz-animation: fadeIn ease 1s;
+          -o-animation: fadeIn ease 1s;
+          -ms-animation: fadeIn ease 1s;
+          }
+        
+        
+            @keyframes fadeIn 
+            {0%{opacity:0;}100%{opacity:1;}}
+
+            @-moz-keyframes fadeIn {
+              0% {
+            opacity:0;
+              }
+              100% {
+            opacity:1;
+              }
+              }
+
+        @-webkit-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+          }
+        }
+
+        @-o-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+          }
+        }
+
+        @-ms-keyframes fadeIn {
+          0% {
+            opacity:0;
+          }
+          100% {
+            opacity:1;
+        }
+        }
+
+
+
+
+                     .responsive {
+                          width: 100%;
+                          height: auto;
+                          }
+
+                          .img {
+                            float: left;
+                            width: auto;
+                          background:rgb(255, 255, 255); 
+                            }
+
+
+        @media only screen and (min-width: 1024px) {
+                    
+
+                    .main { 
+                    padding: 400px;
+                    flex-wrap: wrap;
+                    padding-top: 35px;
+                    padding-bottom: 35px;
+                    }
+
+                    .navbar a {
+                    padding-left: 50px;
+                    }
+            
+                    .responsive { 
+                    max-width: auto;
+                    height: auto;
+                    padding-left: 400px;       /*set to match main*/
+                    padding-right: 400px;  
+                    padding-top: 10px;       /*but make sure contet doesnt drop*/ 
+                    
+                    }   
+
+                  
+        }
+
+      
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </head>
+
+    <div class="header fade-in">
+        <img src="img/MTStudio-2021.png" alt="mtstudio, architecture, design, houses, draw, earth, construction, building, durban, south africa"/> 
+        <h1>Monkeythorn Studio</h1>
+    </div> 
+
+
+
+
+    <body>
+    <script>
+          // alert("Hello Dim")
+          function handleClick() {
+              // alert("We are currently out of stock of everything \nApologies for the inconvenience")
+              let infoBar = document.querySelector("#info-bar")
+              infoBar.style.height = "500px";
+          }
+      </script>
+
+
+
+        <div class="navbar fade-in">
+          <a href="index.html">Projects</a>
+          <a href="services.html">Services</a> 
+         
+        </div>
+  
+
+        <div class="row">
+    
+          <div class="main fade-in">
+             
+
+            <button class="accordion">New Clients</button>
+            <div class="panel">
+            <p><btext> We want to make the process of building easy for you. We offer a
+              full or partial professional service, as per the government gazette. To see more about the architect's work stages and services, 
+            click <a href="https://cdn.ymaws.com/www.sacapsa.com/resource/resmgr/Board_Notices/Board_Notice_121_of_2015.Sca.pdf">here</a></btext></p>
+            Before you start preparing to build, make sure you see the following checklist.                  
+          </div>
+
+
+            <button class="accordion">Architectural Services</button>
+              <div class="panel">
+              <p><btext> Full or partial professional service. Work Stages 1-6 at Gazetted Rates. For a full description of each work stage, 
+              click <a href="https://cdn.ymaws.com/www.sacapsa.com/resource/resmgr/Board_Notices/Board_Notice_121_of_2015.Sca.pdf">here</a></btext></p>
+                  
+            </div>
+          
+            <button class="accordion">Specialist Services</button>
+              <div class="panel">
+                <p><btext><ul> 
+            
+                <li> Architectural As Builts - Any software or freehand</li>
+                <li> 3D Architectural Models & Renders (incl. BIM)</li>
+                <li> Full Local Authority submission documentation</li>  
+                <li> Landscape Architecture & Outdoor Design</li>
+                <li> Full Construction documentation</li>
+                <li> 2D Graphics and Schematics</li>
+                <li> Architectural Photography</li>  
+                <li> Furniture Design</li> 
+            
+          </ul>
+          </btext></p>
+            </div>
+              
+            <button class="accordion">Eco Architecture</button>
+            <div class="panel">
+              <p><btext><ul>
+                <li>Specialist in Compressed Stabilized Earth Block (CSEB) design and construction, including rammed earth, vaults and domes.</li>
+                <li>Specialist in bamboo design and construction, 
+                  in association with <a href="https://renewablehouses.co.za">Renewable Houses South Africa</a>
+                </btext></li></ul>
+                </p>
+            </div> 
+
+            <button class="accordion">Fees</button>
+            <div class="panel">
+              <p><btext><ul>
+                <li>Full Architectural Service: Gazetted <a href="file/sacap-board-notice-122-of-2015.pdf">fees</a> PDF (211KB)</li>  
+                <li>Partial Architectural Service on any stage of work: negotiated flat fee with 50% deposit or hourly rate.</li>
+                <li>Professional Architectural Consulting on any stage of work: hourly rate, project specific.</li>
+                <li>Furniture Design: +/- 30% of project value (varies on complexity and quantity)</li>
+                </ul>
+                </btext></p>
+            </div> 
+
+              <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+                
+                for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+                });
+                  }
+              </script>
+
+            </div>
+
+            <div class=".responsive"> 
+                <img src="img/Cover-Fort.jpg" alt="Fortmannspruit, monkeythorn studio, mtstudio, lead architects, schools, plan, design, architect, durban, south africa" class="responsive">
+            </div>
+
+
+          </div>
+    
+
+          <div class="footer fade-in">
+   
+        <p>
+        <btext><b>Monkeythorn Studio | Architecture | South Africa</b></btext>
+        <h2>
+        
+        
+          <div id="hideaway" style="display:none;">
+          <p>CIPC REG: pending
+            <br>Email: mtstudio.za@gmail.com 
+            <br>Inquiries: 071 581 2568
+            <br>Site maintained by Monkeythorn Studio | 2020 
+          </p>                
+        </div>
+          <p> 
+            <a href="javascript:;" onClick="document.getElementById('hideaway').style.display='block';">Contact Details</a>
+            <a href="javascript:;" onClick="document.getElementById('hideaway').style.display='none';">Hide Details</a>
+          </p></h2>
+              
+        </p>
+      
+    
+      </div>  
+
+
+
+    </div>
+    
+  </html>
+
